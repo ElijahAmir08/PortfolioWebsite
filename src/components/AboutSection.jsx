@@ -1,5 +1,5 @@
 import SectionShell from "./SectionShell";
-import { sectionSprites } from "../data/sprites";
+import { sectionSprites } from "../data/siteData";
 
 export default function AboutSection() {
     return (

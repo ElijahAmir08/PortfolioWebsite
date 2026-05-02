@@ -1,11 +1,12 @@
 import "./App.css";
 import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import AboutSection from "./components/AboutSection";
+import HomeIntro from "./components/HomeIntro";
+import QuickLinks from "./components/QuickLinks";
+import InfoPanelGrid from "./components/InfoPanelGrid";
 import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
+import AboutSection from "./components/AboutSection";
 import EducationSection from "./components/EducationSection";
-import ContactSection from "./components/ContactSection";
 
 export default function App() {
   return (
@@ -17,21 +18,24 @@ export default function App() {
 
         @keyframes pixelFloat {
           0%, 100% {
-            transform: translateY(0);
+            transform: translateY(0px);
           }
           50% {
             transform: translateY(-4px);
           }
         }
       `}</style>
+
       <Header />
+
       <main>
-        <HeroSection />
-        <AboutSection />
+        <HomeIntro />
+        <QuickLinks />
+        <InfoPanelGrid />
         <ProjectsSection />
         <SkillsSection />
+        <AboutSection />
         <EducationSection />
-        <ContactSection />
       </main>
     </div>
   );
