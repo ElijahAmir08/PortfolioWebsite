@@ -1,4 +1,5 @@
 import "./App.css";
+// Import all child components here:
 import Header from "./components/Header";
 import HomeIntro from "./components/HomeIntro";
 import QuickLinks from "./components/QuickLinks";
@@ -10,8 +11,13 @@ import EducationSection from "./components/EducationSection";
 import RelocationPanel from "./components/RelocationPanel";
 
 export default function App() {
+  /**
+   * This is the main App component that serves as the root of the application.
+   * It imports and renders all the child components that make up the different sections of the portfolio website.
+   */
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
+      {/* Define global style for pixel gif's floating animation */}
       <style>{`
         .pixel-float {
           animation: pixelFloat 2.8s ease-in-out infinite;
@@ -28,7 +34,7 @@ export default function App() {
       `}</style>
 
       <Header />
-
+      {/* Define homepage structure/ordering here */}
       <main>
         <HomeIntro />
         <QuickLinks />

@@ -1,25 +1,27 @@
 import PropTypes from "prop-types";
 import Sprite from "./Sprite";
 
+// Define a reusable section component that can be used to create different sections of the portfolio, such as skills, projects, etc. 
+// It accepts props for id, title, children (content), additional class names for styling, and an array of sprites to render within the section.
 export default function SectionShell({
     id,
     title,
     children,
-    className ="",
+    className = "",
     innerClassName = "",
-    sprites=[],
+    sprites = [],
 }) {
     return (
-        <section id={id} className={'max-w-6x1 mx-auto px-6 py-12 ${className}'}>
+        <section id={id} className={'max-w-6xl mx-auto px-6 py-12 ${className}'}>
             <div
-                className ={'relative overflow-visible rounded- [2rem] border border-white/10 bg-white/5 p-8 md:p-10 pt-10 ${innerClassName}'}
+                className={'relative overflow-visible rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 pt-10 ${innerClassName}'}
             >
                 {sprites.map((sprite, index) => (
                     <Sprite key={'${id}-${sprite.name || "sprite"}-${index}'}{...sprite} />
                 ))}
-                <h3 className = "text-2x1 md:text-3x1 font-semibold mb-6">{title}</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-6">{title}</h3>
                 {children}
-            </div>  
+            </div>
         </section>
     );
 }

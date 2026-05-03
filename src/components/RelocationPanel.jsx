@@ -1,16 +1,19 @@
+//Import data objects as needed and children components here:
 import { relocationData } from '../data/relocationData';
 import RelocationMap from './RelocationMap';
-function toRadians(degrees) {
+
+//Define helper functions (e.g. distance calculation) here:
+function degreesToRadians(degrees) {
     return (degrees * Math.PI) / 180;
 }
 
 function getDistanceMiles(lat1, lon1, lat2, lon2) {
     const earthRadiusMiles = 3958.8; // Radius of the Earth in miles
-    const latitudeDifference = toRadians(lat2 - lat1);
-    const longitudeDifference = toRadians(lon2 - lon1);
+    const latitudeDifference = degreesToRadians(lat2 - lat1);
+    const longitudeDifference = degreesToRadians(lon2 - lon1);
 
     const a = Math.sin(latitudeDifference / 2) * Math.sin(latitudeDifference / 2) +
-        Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+        Math.cos(degreesToRadians(lat1)) * Math.cos(degreesToRadians(lat2)) *
         Math.sin(longitudeDifference / 2) * Math.sin(longitudeDifference / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
@@ -18,7 +21,9 @@ function getDistanceMiles(lat1, lon1, lat2, lon2) {
 
 }
 
+//Define main component here:
 export default function RelocationPanel() {
+    // Calculate distance between current and next location:
     const distanceInMiles = Math.round(
         getDistanceMiles(
             relocationData.current.lat, relocationData.current.lng, relocationData.next.lat, relocationData.next.lng

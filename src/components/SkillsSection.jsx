@@ -5,6 +5,7 @@ export default function SkillsSection() {
   return (
     <SectionShell id="skills" title="Toolbox" sprites={sectionSprites.skills}>
       <div className="grid md:grid-cols-2 gap-6">
+        {/* Loop through skill groups and create a card for each here: */}
         {skillGroups.map((group) => (
           <div
             key={group.title}
@@ -15,6 +16,7 @@ export default function SkillsSection() {
             </h4>
 
             <div className="flex flex-wrap gap-2">
+              {/* Loop through individual skills and visualize here: */}
               {group.items.map((item) => (
                 <span
                   key={item}

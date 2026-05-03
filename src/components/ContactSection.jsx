@@ -1,6 +1,6 @@
 export default function ContactSection() {
-    return (
-        <section id="contact" className="max-w-6xl mx-auto px-6 py-12 pb-24">
+  return (
+    <section id="contact" className="max-w-6xl mx-auto px-6 py-12 pb-24">
       <div className="relative overflow-visible rounded-[2rem] border border-cyan-400/20 bg-cyan-400/10 p-8 md:p-10 pt-10">
         <h3 className="text-2xl md:text-3xl font-semibold mb-6">Contact</h3>
         <p className="text-slate-200 text-lg leading-8 max-w-2xl mb-6">
@@ -33,5 +33,5 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
-    );
+  );
 }

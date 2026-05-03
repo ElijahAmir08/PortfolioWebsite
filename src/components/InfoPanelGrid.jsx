@@ -4,6 +4,7 @@ export default function InfoPanelGrid() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-6">
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+        {/* Loop through info panels and create a card for each here: */}
         {infoPanels.map((panel) => (
           <div
             key={panel.title}

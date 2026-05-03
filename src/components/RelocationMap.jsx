@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 import {
-  MapContainer,
-  TileLayer,
-  Polyline,
-  Popup,
-  CircleMarker,
-  useMap,
+  MapContainer, //Map-wrapper
+  TileLayer, //Background map tiles
+  Polyline, //The line connecting current and next location
+  Popup, //Popup info for each marker
+  CircleMarker, //Markers for current, next, and points of interest
+  useMap, //Hook to controll the map
 } from "react-leaflet";
 import { relocationData } from "../data/relocationData";
-
+//Helper component to fit the map view to show all points of interest and route:
 function FitMapToAllPoints({ coordinates }) {
   const map = useMap();
-
+  //Use useEffect to fit the map bounds to include all coordinates whenever they change
   useEffect(() => {
     map.fitBounds(coordinates, { padding: [40, 40] });
   }, [map, coordinates]);
 
   return null;
 }
-
+//Define point color helper function:
 function getPointColor(pointType) {
   switch (pointType) {
     case "origin":
@@ -33,8 +33,9 @@ function getPointColor(pointType) {
       return "#38bdf8";
   }
 }
-
+//Main component here: The map embedded in the RelocationPanel
 export default function RelocationMap() {
+  //Define coordinates for current location, next location, and points of interest:
   const currentCoordinates = [
     relocationData.current.lat,
     relocationData.current.lng,

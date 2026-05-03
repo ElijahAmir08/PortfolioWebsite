@@ -1,5 +1,5 @@
 export default function HomeIntro() {
-    return (
+  return (
     <section className="max-w-6xl mx-auto px-6 pt-12 pb-6">
       <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-6 items-stretch">
         <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
