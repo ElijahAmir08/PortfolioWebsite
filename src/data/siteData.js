@@ -124,3 +124,19 @@ export const skillGroups = [
     body: "I enjoy gaming, reading, camping, cooking, and finding ways to make technical spaces feel more personal.",
   },
   ];
+
+  export const relocationData = {
+    current: {
+      label: "Current Base",
+      city: "Charlottesville, VA",
+      lat: 38.0293,
+      lng: -78.4767,
+    },
+    next: {
+      label: "Next Base",
+      city: "Santa Barbara, CA",
+      lat: 34.4208,
+      lng: -119.6982,
+    },
+    status: "Preparing for UCSB",
+  };
