@@ -7,6 +7,7 @@ import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
 import AboutSection from "./components/AboutSection";
 import EducationSection from "./components/EducationSection";
+import RelocationPanel from "./components/RelocationPanel";
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
         <SkillsSection />
         <AboutSection />
         <EducationSection />
+        <RelocationPanel />
       </main>
     </div>
   );
