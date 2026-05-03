@@ -1,5 +1,5 @@
 import {relocationData} from '../data/relocationData';
-
+import RelocationMap from './RelocationMap';
 function toRadians(degrees) {
     return (degrees * Math.PI) / 180;
 }
@@ -19,14 +19,14 @@ function getDistanceMiles(lat1, lon1, lat2, lon2) {
 }
 
 export default function RelocationPanel() {
-    const distance = Math.round(
+    const distanceInMiles = Math.round(
         getDistanceMiles(
             relocationData.current.lat, relocationData.current.lng, relocationData.next.lat, relocationData.next.lng
         )
     );
     return (
-        <section className="max-w-6xl mx-auto px-6 py-6">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
+    <section className="max-w-6xl mx-auto px-6 py-6">
+      <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
         <div className="flex items-center justify-between gap-4 flex-wrap mb-6">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-cyan-300 mb-2">
@@ -42,7 +42,7 @@ export default function RelocationPanel() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 items-center">
+        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 items-center mb-6">
           <div className="rounded-[1.5rem] border border-white/10 bg-slate-900/70 p-5">
             <p className="text-sm uppercase tracking-[0.16em] text-slate-400 mb-2">
               {relocationData.current.label}
@@ -50,9 +50,6 @@ export default function RelocationPanel() {
             <h4 className="text-xl font-semibold mb-1">
               {relocationData.current.city}
             </h4>
-            <p className="text-slate-300">
-              {relocationData.current.subtitle}
-            </p>
           </div>
 
           <div className="flex flex-col items-center justify-center min-w-[180px]">
@@ -60,7 +57,9 @@ export default function RelocationPanel() {
             <div className="w-24 md:w-32 h-[2px] bg-gradient-to-r from-cyan-300 via-slate-500 to-cyan-300" />
             <div className="w-3 h-3 rounded-full bg-cyan-300 mt-2" />
 
-            <p className="text-2xl font-semibold mt-4">{distance.toLocaleString()} mi</p>
+            <p className="text-2xl font-semibold mt-4">
+              {distanceInMiles.toLocaleString()} mi
+            </p>
             <p className="text-sm text-slate-400 mt-1 text-center">
               Approximate move distance
             </p>
@@ -73,13 +72,14 @@ export default function RelocationPanel() {
             <h4 className="text-xl font-semibold mb-1">
               {relocationData.next.city}
             </h4>
-            <p className="text-slate-300">
-              {relocationData.next.subtitle}
-            </p>
           </div>
         </div>
 
-        <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-slate-900/50 p-5">
+        <div className="mb-6">
+          <RelocationMap />
+        </div>
+
+        <div className="rounded-[1.5rem] border border-white/10 bg-slate-900/50 p-5">
           <p className="text-sm uppercase tracking-[0.16em] text-cyan-300 mb-2">
             Move Status
           </p>
@@ -89,5 +89,5 @@ export default function RelocationPanel() {
         </div>
       </div>
     </section>
-    );
+  );
 }
